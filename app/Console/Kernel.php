@@ -18,7 +18,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         TotalCheck::class,
-        getList::class
+        getList::class,
+        getListNo::class
     ];
 
     /**
@@ -32,6 +33,7 @@ class Kernel extends ConsoleKernel
          $schedule->command('check:total')->everyMinute();
          $schedule->command('check:list')->everyMinute();
          $schedule->command('check:listNo')->everyMinute();
+         $schedule->command('check:sendMail')->everyMinute();
     }
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\HtmlString;
 
-class ListChange extends Notification
+class SendIssue extends Notification
 {
     use Queueable;
 
@@ -45,10 +45,12 @@ class ListChange extends Notification
     public function toMail($notifiable)
     {
         $msg =  (new MailMessage)
-                    ->subject('나라장터 공고 알림')
-                    ->line('새로운 공고가 생겼습니다. 확인하세요');
-                    
-                $msg->line(new HtmlString(this));
+                    ->greeting('')
+                    ->subject($this->info->getSubject())
+                    // ->replyTo('jnyou@everytalk.co.kr','유지나') 
+                    ->line(new HtmlString($this->info->getHTMLBody()));
+        $msg->markdown('mail');
+                     
         return $msg;
     }
 
