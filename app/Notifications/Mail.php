@@ -1,13 +1,13 @@
 use Webklex\IMAP\Client;
  
 $oClient = new Client([
-    'host'          => 'somehost.com',
-    'port'          => 993,
+    'host'          => 'pop3s.hiworks.com',
+    'port'          => 995,
     'encryption'    => 'ssl',
     'validate_cert' => true,
-    'username'      => 'username',
-    'password'      => 'password',
-    'protocol'      => 'imap'
+    'username'      => 'jnyou@everytalk.co.kr',
+    'password'      => 'j94381600*',
+    'protocol'      => 'pop3'
 ]);
  
 //Connect to the IMAP Server
